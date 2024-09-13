@@ -4,3 +4,25 @@ font-family: 'Anonymous Pro', monospace;
 font-family: 'Audiowide', display;
 font-family: 'Pixelify Sans', display;
 font-family: 'Press Start 2P', display;*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Anaheim, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+body{
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh; 
+  /*this works together with setting main{flex:1;} to create the sticky footer*/
+}
+header{
+  background: #544E7A; /*565473, alt colour #544E7A or 68668C*/
+  color: #FFFFFF;
+  display: flex; 
+  align-items: center;
+  justify-content: space-evenly;
+  text-decoration: none;
+  height: fit-content;
+}
