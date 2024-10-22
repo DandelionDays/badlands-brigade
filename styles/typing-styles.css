@@ -1,0 +1,139 @@
+body{
+  background: rgb(37, 21, 21);
+  font-family: 'Courier New', Courier, monospace; 
+  color: antiquewhite;
+  margin: none;
+  padding: none;
+  line-height: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+article {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 
+---------------------------------------------------------------------------
+FROM https://dev.to/alvaromontoro/multiline-css-only-typewriter-effect-18p4 
+---------------------------------------------------------------------------
+*/
+
+@keyframes grow {
+  0% { max-height: var(--lineHeight); }
+  100% { max-height: calc(var(--lineHeight) * var(--lines)); }
+}
+
+@keyframes carriageReturn {
+  0% { top: 0; }
+  100% { top: calc(var(--lineHeight) * var(--lines)); }
+}
+
+@keyframes type {
+  0% { width: 100%; }
+  100% { width: 0%; }
+}
+
+@keyframes caret {
+  0% { color: var(--bgColor); }
+  100% { color: var(--bgColor); }
+}
+
+.typewriter {
+  --bgColor: rgb(37, 21, 21);
+  --lines: 500;
+  --lineHeight: 1rem;
+  --timePerLine: 1s;
+  --widthCh: 22;
+  --width: calc(var(--widthCh) * 1ch);
+  /* do not touch the time property!!! */
+  --time: calc(var(--lines) * var(--timePerLine));
+  animation: grow var(--time) steps(var(--lines));
+  animation-fill-mode: none;
+  background: var(--bgColor);  
+  line-height: var(--lineHeight);
+  max-height: var(--lineHeight);
+  overflow: hidden;
+  position: relative;
+  width: var(--width);
+  /* word-break: break-all; */
+}
+
+.typewriter::before {
+  content: "";
+  animation: 
+    type var(--timePerLine) steps(var(--widthCh)) infinite, 
+    carriageReturn var(--time) steps(var(--lines)) var(--lines),
+    caret 0.5s steps(2) infinite;
+  background: var(--bgColor);
+  border-left: 2px solid;
+  bottom: 0;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+/* this gets me delaying the appearance of each block by the specified times, i'd still like to hide each section as the animation finishes and have each box stack but that's not critical!  */
+#pt2 {
+  animation-delay: 11s;
+}
+#pt2::before {
+  animation-delay: 11s;
+}
+#pt3 {
+  animation-delay: 20s;
+}
+#pt3::before {
+  animation-delay: 20s;
+}
+#pt4 {
+  animation-delay: 29s;
+}
+#pt4::before {
+  animation-delay: 29s;
+}
+
+/*
+I want to hide each section after it's done typing, this just hides it from the start
+#pt1 {
+  transition: display 0.2;
+  transition-delay: 11s;
+  display: none;
+}
+*/
+
+/* 
+-----------------------------------------------------
+FROM https://www.sitepoint.com/css-typewriter-effect/ 
+-----------------------------------------------------
+Chose not to go for this because I didn't like how it only really handled single line text well.
+*/
+/*.container {
+  display: inline-block;
+}
+
+p {
+  overflow: hidden;
+  border-right: .15em solid rgb(139, 14, 10);
+  white-space: nowrap;
+  animation: 
+  typing 1s steps(20, end) forwards;
+  font-size: 1.6rem;
+  width: 0;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}*/
+
