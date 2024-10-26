@@ -4,7 +4,7 @@ body{
   color: antiquewhite;
   margin: none;
   padding: none;
-  line-height: 0;
+  line-height: 1rem;
 }
 
 h1 {
@@ -30,53 +30,85 @@ FROM https://dev.to/alvaromontoro/multiline-css-only-typewriter-effect-18p4
 */
 
 @keyframes grow {
-  0% { max-height: var(--lineHeight); }
-  100% { max-height: calc(var(--lineHeight) * var(--lines)); }
+  0% { 
+    max-height: var(--lineHeight); 
+  }
+  100% { 
+    max-height: calc(var(--lineHeight) * var(--lines));
+  }
 }
 
 @keyframes carriageReturn {
-  0% { top: 0; }
-  100% { top: calc(var(--lineHeight) * var(--lines)); }
+  0% { 
+    top: 0; 
+  }
+  100% { 
+    top: calc(var(--lineHeight) * var(--lines)); 
+  }
 }
 
 @keyframes type {
-  0% { width: 100%; }
-  100% { width: 0%; }
+  0% { 
+    width: 100%; 
+  }
+  100% { 
+    width: 0%; 
+  }
 }
 
 @keyframes caret {
-  0% { color: var(--bgColor); }
-  100% { color: var(--bgColor); }
+  0% { 
+    color: var(--bgColor); 
+  }
+  100% { 
+    color: var(--bgColor); 
+  }
 }
 
-.typewriter {
+@keyframes hideText {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+/* revealing line-by-line */
+.typing-effect {
   --bgColor: rgb(37, 21, 21);
-  --lines: 500;
+  --lines: 55;
   --lineHeight: 1rem;
   --timePerLine: 1s;
   --widthCh: 22;
   --width: calc(var(--widthCh) * 1ch);
   /* do not touch the time property!!! */
   --time: calc(var(--lines) * var(--timePerLine));
-  animation: grow var(--time) steps(var(--lines));
+  animation: 
+    grow var(--time) steps(var(--lines));
+  animation-iteration-count: infinite;
   animation-fill-mode: none;
-  background: var(--bgColor);  
+  background: blue;  
   line-height: var(--lineHeight);
   max-height: var(--lineHeight);
   overflow: hidden;
   position: relative;
   width: var(--width);
-  /* word-break: break-all; */
 }
 
-.typewriter::before {
+/* typing caret */
+.typing-effect::before {
   content: "";
   animation: 
     type var(--timePerLine) steps(var(--widthCh)) infinite, 
     carriageReturn var(--time) steps(var(--lines)) var(--lines),
     caret 0.5s steps(2) infinite;
-  background: var(--bgColor);
-  border-left: 2px solid;
+  background: pink /*var(--bgColor)*/;
+  border-left: 2px solid green;
   bottom: 0;
   height: 2rem;
   position: absolute;
@@ -85,6 +117,7 @@ FROM https://dev.to/alvaromontoro/multiline-css-only-typewriter-effect-18p4
 }
 
 /* this gets me delaying the appearance of each block by the specified times, i'd still like to hide each section as the animation finishes and have each box stack but that's not critical!  */
+
 #pt2 {
   animation-delay: 11s;
 }
@@ -104,6 +137,13 @@ FROM https://dev.to/alvaromontoro/multiline-css-only-typewriter-effect-18p4
   animation-delay: 29s;
 }
 
+/* hides all text in container, but doesn't persist when animation loop starts again. why?*/
+/*
+.container {
+  animation: 2s hideText;
+  animation-delay: 53s;
+}
+*/
 /*
 I want to hide each section after it's done typing, this just hides it from the start
 #pt1 {

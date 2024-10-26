@@ -1,30 +1,51 @@
-/*font-family: 'Abel', sans-serif;
+/*
+font tests:
+font-family: 'Abel', sans-serif;
 font-family: 'Anaheim', sans-serif;
 font-family: 'Anonymous Pro', monospace;
 font-family: 'Audiowide', display;
 font-family: 'Pixelify Sans', display;
 font-family: 'Press Start 2P', display;*/
+/* 
+------------------
+SITE WIDE DEFAULTS
+------------------
+*/
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Anaheim, Arial, Helvetica, sans-serif;
   text-decoration: none;
+  scrollbar-gutter: stable both-edges;
 }
 body{
   display: flex;
   flex-flow: column;
   min-height: 100vh; 
   /*this works together with setting main{flex:1;} to create the sticky footer*/
+  background-color: #0e1f27;
+  color: #113d52;
 }
+
+@media (max-width: 500px) {
+  body {
+    font-size: 0.75rem;
+  }
+}
+
+/*
+-----------------
+MAIN NAV DEFAULTS
+-----------------
+*/
 .navbar{
-  background: #02453D; /*565473, alt colour #544E7A or 68668C*/
+  background: #0e1f27; /*565473, alt colour #544E7A or 68668C*/
   padding:0.125rem;
   padding-top: 0.5rem;
-
 }
-nav{
-  color: #FF8D0A;
+nav.main-nav{
+  color: #e7e4e4;
   display: flex; 
   flex-flow: row;
   flex-direction: row;
@@ -33,16 +54,27 @@ nav{
   text-decoration: none;
   height: fit-content;
 }
-h1{
-  color: #FF8D0A;
+.navbar a{
+  color: #F5E9E9
 }
+
 a{
-  color: #FF8D0A;
+  color: #DA2C38;
 }
+
+/*
+---------------------
+MAIN CONTENT DEFAULTS
+---------------------
+*/
 main{
   flex:1; /*this is what gives the main content flex item the viewport height to push the footer to the bottom if the page content is not longer than the viewport height*/
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  overflow-wrap: break-word;
 }
 main img{
   max-width: 100vw;
@@ -56,4 +88,203 @@ main img{
 }
 footer{
   align-self: center;
+}
+
+/*
+------------------
+HOME PAGE STYLING
+------------------
+*/
+
+@keyframes skeletonLoading {
+  0% {
+    background-image: url(../images/badlands-brigade-presents.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 1;
+  }
+  100% {
+    
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*
+this isn't having any effect and I don't know why
+@keyframes fadeIn {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-image: url(../images/backgrounds-brigade-badlands.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+*/
+
+body.home-page {
+  animation: 9s skeletonLoading 1 forwards;
+  -webkit-animation: 9s skeletonLoading 1 forwards;
+  -moz-animation: 10s skeletonLoading 1 forwards;
+  -o-animation: 9s skeletonLoading 1 forwards;
+  -ms-animation: 9s skeletonLoading 1 forwards;
+  background-image: url(../images/backgrounds-brigade-badlands.png);
+  background-color: #0e1f27;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  scrollbar-gutter: auto;
+}
+
+img.home-logo {
+  opacity: 0;
+  animation: 2s fadeIn 3.5s 1 forwards;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin:auto;
+  margin-top: 30vh;
+  padding: 1rem;
+}
+/*
+div.home-page-skeleton {
+  background-color: black;
+  opacity: 1;
+  animation: fadeOut 2s ease-out 4s 1 forwards;
+}
+*/
+/*
+-------------------------
+BLOODHOUNDS PAGE STYLINGS
+-------------------------
+*/
+.explanatory-article {
+  width: 100%;
+  overflow: auto;
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: #F5E9E9;
+}
+
+@media (min-width: 800px) {
+  .explanatory-article {
+    max-width: 632px;
+  }
+}
+
+/*
+----------------------
+CREDITS PAGE STYLINGS
+----------------------
+*/
+/* headings and blurb styling */
+.credits-article {
+  width: 100%;
+  overflow: auto;
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: #F5E9E9;
+}
+.credits-article h2, .credits-article h3 {
+  border-bottom: solid #DA2C38;
+  /*background: linear-gradient(to top, #ff8d0a65, #ffffff00);
+  nah I don't actually like this look*/
+}
+
+/* 
+----------------------
+table-specific styling 
+----------------------
+*/
+.credits-table {
+  text-align: left;
+  table-layout: fixed;
+  width: 100%;
+  margin-left:auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+/* table headers */
+th {
+  background-color: #da2c3859;
+}
+
+thead th:nth-child(1) {
+  width: 25%;
+}
+
+thead th:nth-child(2) {
+  width: 25%;
+}
+
+thead th:nth-child(3) {
+  width: 50%;
+}
+
+#scene-artists-table thead th:nth-child(1) {
+  width: 20%;
+}
+
+#scene-artists-table thead th:nth-child(2) {
+  width: 25%;
+}
+
+#scene-artists-table thead th:nth-child(3) {
+  width: 35%;
+}
+#scene-artists-table thead th:nth-child(4) {
+  width: 20%;
+}
+
+/* table rows */
+td {
+  border-bottom: 1px dotted #DA2C38;
+}
+tr.admin-role {
+  background-color: #da2c3821;
+}
+
+/* desktop table styling */
+@media (min-width: 800px) {
+  .credits-article {
+    max-width: 632px;
+  }
+  
+  .credits-table {
+    text-align: left;
+    table-layout: fixed;
+    width: 100%;
+    margin-left:auto;
+    margin-right: auto;
+  }
+  th {
+    padding: 0.25rem;
+  }
+  td {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
 }
