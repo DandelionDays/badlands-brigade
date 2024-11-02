@@ -17,15 +17,26 @@ SITE WIDE DEFAULTS
   padding: 0;
   font-family: Anaheim, Arial, Helvetica, sans-serif;
   text-decoration: none;
-  scrollbar-gutter: stable both-edges;
+  scrollbar-gutter: stable;
+  scrollbar-color: #b3333e #ec5147;
 }
 body{
   display: flex;
   flex-flow: column;
   min-height: 100vh; 
   /*this works together with setting main{flex:1;} to create the sticky footer*/
-  background-color: #0e1f27;
+  background-color: #ec5147;
   color: #113d52;
+}
+
+body.badlands-background{
+  background-image: url(../images/backgrounds-brigade-badlands.png);
+  background-position: left 62%;
+  background-attachment: fixed;
+}
+
+a{
+  color: #DA2C38;
 }
 
 .mobile-br {
@@ -47,14 +58,32 @@ body{
 
 /*
 -----------------
-MAIN NAV DEFAULTS
+NAV DEFAULTS
 -----------------
 */
-.navbar{
-  background: #0e1f27; /*565473, alt colour #544E7A or 68668C*/
+header.navbar{
+  background: #ec5147; /*#0e1f27; 565473, alt colour #544E7A or 68668C*/
   padding:0.125rem;
   padding-top: 0.5rem;
+  display: flex;
 }
+
+header.navbar a{
+  color: #F5E9E9
+}
+
+.site-logo{ /*I couldn't figure out why using this selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
+  display: flex; /*puts image and title side by side*/
+  align-items: center; /*distributes them along the centre of the horizontal axis*/
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/*
 nav.main-nav{
   color: #e7e4e4;
   display: flex; 
@@ -65,14 +94,9 @@ nav.main-nav{
   text-decoration: none;
   height: fit-content;
 }
-.navbar a{
-  color: #F5E9E9
-}
+*/
 
-a{
-  color: #DA2C38;
-}
-.sub-nav {
+nav.sub-nav {
   padding-top: 0.5rem;
 }
 

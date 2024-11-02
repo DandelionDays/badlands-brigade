@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,21 +14,45 @@
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=abel:400|anaheim:400,500,700|anonymous-pro:400,700,700i|audiowide:400|pixelify-sans:400|press-start-2p:400" rel="stylesheet" />
 </head>
-<body>
+<body class="badlands-background">
   <header class="navbar">
-    <nav class="main-nav">
-      <div class="site-name">
-        <a href="../index.html"><h1>Badlands Brigade</h1></a>
-      </div>
-      <div class="project-logo">
-        <a href="../pages/bloodhounds.html">
-         <img src="../images/bloodhounds-logo-uwalani-header.png" alt="Bloodhounds">
+    <!-----------------------
+    site logo; home page link
+    ------------------------>
+      <!--I had a div wrapping the <a> but removed it so that the logo block is a direct child of header.navbar and made it display centred to the right hand nav items-->
+        <a class="site-logo" href="../index.html">
+          <img src="../images/brigade-logo.png" alt="" width="22" height="22">
+          <h1>Badlands Brigade</h1>
         </a>
-      </div>
-      <div class="navlinks">
-        <a href="meet-the-team.html">Meet the Team</a>
-      </div>
-    </nav>
+    <!-----------------------
+    hamburger menu; nav links
+    ------------------------>
+      <nav class="main-nav">
+        <!------------------------
+        hamburger menu open button
+        ------------------------->
+          <button class="topnav-open">
+            <img src="../images/hamburger-button-200.png" alt="Open Menu" width="22" height="22">
+          </button>
+        <!------------
+        nav menu items
+        ------------->
+          <div class="topnav-menu">
+            <button class="topnav-close">
+              <img src="../images/close-button-200.png" alt="Close Menu" width="22" height="22">
+            </button>
+            <ul class="topnav-links">
+              <li class="topnav-item">
+                <a href="../pages/bloodhounds.html">
+                  <img src="../images/bloodhounds-logo-uwalani-header.png" alt="Bloodhounds Project Page">
+                </a> 
+              </li>
+              <li class="topnav-item">
+                <a href="meet-the-team.html">Meet the Team</a>
+              </li>
+            </ul>
+          </div>
+      </nav>
   </header>
   <main>
     <article class="explanatory-article">
