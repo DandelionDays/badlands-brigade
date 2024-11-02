@@ -108,7 +108,7 @@ BLOODHOUNDS PAGE STYLINGS
 -------------------------
 */
 article {
-  max-width: 632px;
+  max-width: 34rem;
   margin: 0.5rem;
   padding: 1rem;
   @media (max-width: 500px) {
@@ -195,9 +195,6 @@ tr.admin-role {
 
 /* desktop table styling */
 @media (min-width: 800px) {
-  .credits-article {
-    max-width: 632px;
-  }
   
   .credits-table {
     text-align: left;
