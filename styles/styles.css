@@ -28,9 +28,20 @@ body{
   color: #113d52;
 }
 
+.mobile-br {
+  display: none;
+}
+
 @media (max-width: 500px) {
   body {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+  }
+  article {
+    padding: 0%;
+    margin: 0%;
+  }
+  .mobile-br {
+    display: inline;
   }
 }
 
@@ -61,6 +72,9 @@ nav.main-nav{
 a{
   color: #DA2C38;
 }
+.sub-nav {
+  padding-top: 0.5rem;
+}
 
 /*
 ---------------------
@@ -73,12 +87,9 @@ main{
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem;
   overflow-wrap: break-word;
 }
-main img{
-  max-width: 100vw;
-}
+
 #site-under-construction{
   display: flex;
   flex-direction: column;
@@ -96,19 +107,17 @@ footer{
 BLOODHOUNDS PAGE STYLINGS
 -------------------------
 */
-.explanatory-article {
-  width: 100%;
-  overflow: auto;
+article {
+  max-width: 632px;
   margin: 0.5rem;
   padding: 1rem;
+  @media (max-width: 500px) {
+    padding: 0.25rem;
+  }
   background-color: #F5E9E9;
+  border-radius: 10px;
 }
 
-@media (min-width: 800px) {
-  .explanatory-article {
-    max-width: 632px;
-  }
-}
 
 /*
 ----------------------
@@ -116,13 +125,7 @@ CREDITS PAGE STYLINGS
 ----------------------
 */
 /* headings and blurb styling */
-.credits-article {
-  width: 100%;
-  overflow: auto;
-  margin: 0.5rem;
-  padding: 1rem;
-  background-color: #F5E9E9;
-}
+
 .credits-article h2, .credits-article h3 {
   border-bottom: solid #DA2C38;
   /*background: linear-gradient(to top, #ff8d0a65, #ffffff00);
@@ -150,33 +153,40 @@ th {
 
 thead th:nth-child(1) {
   width: 25%;
+  /*@media (max-width: 500px) {
+    width: 22%
+  }*/
 }
 
 thead th:nth-child(2) {
-  width: 25%;
+  width: 30%;
+  /*@media (max-width: 500px) {
+    width: 33%
+  }*/
 }
 
 thead th:nth-child(3) {
-  width: 50%;
+  width: 45%;
+  }
 }
 
 #scene-artists-table thead th:nth-child(1) {
-  width: 20%;
-}
-
-#scene-artists-table thead th:nth-child(2) {
   width: 25%;
 }
 
+#scene-artists-table thead th:nth-child(2) {
+  width: 30%;
+}
+
 #scene-artists-table thead th:nth-child(3) {
-  width: 35%;
+  width: 25%;
 }
 #scene-artists-table thead th:nth-child(4) {
   width: 20%;
 }
 
 /* table rows */
-td {
+tr {
   border-bottom: 1px dotted #DA2C38;
 }
 tr.admin-role {
