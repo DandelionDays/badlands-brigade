@@ -65,7 +65,7 @@ body.home-page {
   scrollbar-gutter: auto;
 }
 
-img.home-logo {
+div.coming-soon {
   opacity: 0;
   animation: 2s fadeIn 3s 1 forwards;
   max-width: 90vw;
@@ -74,6 +74,14 @@ img.home-logo {
   align-self: center;
   margin:auto;
   margin-top: 30vh;
+}
+
+h1{
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: Anaheim, Arial, Helvetica, sans-serif;
+  font-size: 3rem;
 }
 /*
 div.home-page-skeleton {
