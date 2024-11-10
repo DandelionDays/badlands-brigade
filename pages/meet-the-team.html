@@ -15,7 +15,7 @@
   <link href="https://fonts.bunny.net/css?family=abel:400|anaheim:400,500,700|anonymous-pro:400,700,700i|audiowide:400|pixelify-sans:400|press-start-2p:400" rel="stylesheet" />
 </head>
 <body class="badlands-background">
-  <header class="navbar">
+  <header class="main-nav">
     <!-----------------------
     site logo; home page link
     ------------------------>
@@ -27,28 +27,34 @@
     <!-----------------------
     hamburger menu; nav links
     ------------------------>
-      <nav class="main-nav">
+      <nav>
         <!------------------------
         hamburger menu open button
         ------------------------->
-          <button class="topnav-open">
-            <img src="../images/hamburger-button-200.png" alt="Open Menu" width="22" height="22">
+          <button id="buttonOpen" class="main-nav-open" aria-expanded="false"> <!--aria-expanded controls whether the dialog is open or closed-->
+            <img src="../images/hamburger-button-500.png" alt="Open Menu" width="33" height="33">
           </button>
         <!------------
         nav menu items
         ------------->
-          <div class="topnav-menu">
-            <button class="topnav-close">
-              <img src="../images/close-button-200.png" alt="Close Menu" width="22" height="22">
+          <div class="main-nav-menu" role="dialog"> <!--ARIA role=dialog is for toggleable things-->
+            <button id="button-close" class="main-nav-close">
+              <img src="../images/close-button-500.png" alt="Close Menu" width="33" height="33">
             </button>
-            <ul class="topnav-links">
-              <li class="topnav-item">
+            <ul class="main-nav-links">
+              <li class="main-nav-item">
                 <a href="../pages/bloodhounds.html">
-                  <img src="../images/bloodhounds-logo-uwalani-header.png" alt="Bloodhounds Project Page">
+                  <img src="../images/bloodhounds-logo-uwalani-header-300w.png" alt="Bloodhounds Project Page">
                 </a> 
               </li>
-              <li class="topnav-item">
+              <li class="main-nav-item">
                 <a href="meet-the-team.html">Meet the Team</a>
+              </li>
+              <li class="main-nav-item">
+                <a href="bloodhounds/concept-art.html">Concept Art</a>
+              </li>
+              <li class="main-nav-item">
+                <a href="bloodhounds/behind-the-scenes.html">Behind The Scenes</a>
               </li>
             </ul>
           </div>
@@ -57,7 +63,9 @@
   <main>
     <article class="explanatory-article">
       <h2>Meet the Team</h2>
+<!-------------------------------------------->
       <p>Insert paragraph About the Brigade</p>
+<!-------------------------------------------->
       <nav class="sub-nav">
         <p>
           Jump To: 
