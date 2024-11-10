@@ -61,40 +61,58 @@ a{
 NAV DEFAULTS
 -----------------
 */
-header.navbar{
+header.main-nav{
   background: #ec5147; /*#0e1f27; 565473, alt colour #544E7A or 68668C*/
   padding:0.125rem;
   padding-top: 0.5rem;
-  display: flex;
-}
-
-header.navbar a{
-  color: #F5E9E9
-}
-
-.site-logo{ /*I couldn't figure out why using this selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
-  display: flex; /*puts image and title side by side*/
-  align-items: center; /*distributes them along the centre of the horizontal axis*/
-}
-
-button {
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-/*
-nav.main-nav{
-  color: #e7e4e4;
-  display: flex; 
-  flex-flow: row;
-  flex-direction: row;
+  display: flex; /* keep the h1 tag on the left and the main nav on the right */
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-evenly;
-  text-decoration: none;
-  height: fit-content;
+  .site-logo { 
+    display: flex; /*puts image and title side by side*/
+    align-items: center; /*distributes them along the centre of the horizontal axis*/
+    /*I couldn't figure out why using this selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element instead of the <div> since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
+  }
+  a {
+    color: #F5E9E9;
+  }
+  button {
+    background: none;
+    border: none;
+    padding: 1rem;
+  }
+  .main-nav-open [aria-expanded="true"]{
+    + .main-nav-menu {
+      translate: 0 /* When aria expanded=true, clicking the main nav open button will bring the main nav menu back on screen */
+    }
+  }
+  .main-nav-close {
+    display: block;
+    margin-inline-start: auto;
+    margin-inline-end: 1rem;
+    margin-block-end: 8rem;
+  }
+  .main-nav-menu {
+    @media (width < 40em) {
+      background: #ec5147;      
+      position: fixed;
+      inset: 0;
+      padding-block: 1.5rem;
+      translate: 100vw, 0;
+      transition: translate 0.5s ease-in-out;
+    }
+  }
+  .main-nav-links { /* removes default list styling, styles nav-links in a row */
+    list-style: none;
+    display: flex; 
+    gap: 1rem;
+    align-items: center;
+    @media (width < 40em){
+      flex-direction: column;
+      font-size: 2rem;
+    }
+  }
 }
-*/
 
 nav.sub-nav {
   padding-top: 0.5rem;
@@ -191,7 +209,6 @@ thead th:nth-child(2) {
 
 thead th:nth-child(3) {
   width: 45%;
-  }
 }
 
 #scene-artists-table thead th:nth-child(1) {
