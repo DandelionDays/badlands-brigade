@@ -135,6 +135,13 @@ button.main-nav-close {
   }
 }
 
+.main-nav-item img {
+  max-width: 100%;
+  height: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 nav.sub-nav {
   padding-top: 0.5rem;
 }
