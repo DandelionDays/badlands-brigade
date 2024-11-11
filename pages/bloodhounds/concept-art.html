@@ -12,31 +12,64 @@
   <!--fonts-->
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=abel:400|anaheim:400,500,700|anonymous-pro:400,700,700i|audiowide:400|pixelify-sans:400|press-start-2p:400" rel="stylesheet" />
+  <script src="../../scripts/main.js" async></script>
 </head>
-<body>
-  <header class="navbar">
+<body class="badlands-background">
+  <header class="main-nav">
+    <!-----------------------
+    site logo; home page link
+    ------------------------>
+    <a class="site-logo" href="../../index.html">
+      <img src="../../images/badlands brigade logo/logo-64px7.png" alt="" width="64" height="64immer me">
+      <h1>Badlands Brigade</h1>
+    </a>
+    <!-----------------------
+    hamburger menu; nav links
+    ------------------------>
     <nav>
-      <div class="site-name">
-        <a href="../../index.html"><h1>Badlands Brigade</h1></a>
+    <!------------------------
+    hamburger menu open button
+    ------------------------->
+      <button 
+        id="buttonOpen" 
+        class="main-nav-open" 
+        onclick="openMobileMenu()"
+        aria-expanded="false"> 
+          <!--aria-expanded controls whether the dialog is open or closed-->
+        <img src="../../images/hamburger-button-500.png" alt="Open Menu" width="33" height="33">
+      </button>
+    <!------------
+    nav menu items
+    ------------->
+      <div class="main-nav-menu" role="dialog"> <!--ARIA role=dialog is for toggleable things-->
+        <button 
+          id="buttonClose" 
+          onclick="closeMobileMenu()"
+          aria-label="Close" 
+          class="main-nav-close">
+          <img src="../../images/close-button-500.png" alt="" width="33" height="33">
+        </button>
+        <ul class="main-nav-links">
+          <li class="main-nav-item">
+            <a href="../bloodhounds.html">
+              <img src="../../images/bloodhounds-logo-uwalani-header-300w.png" alt="Bloodhounds Project Page">
+            </a> 
+          </li>
+          <li class="main-nav-item">
+            <a href="../meet-the-team.html">Meet the Team</a>
+          </li>
+          <li class="main-nav-item">
+            <a href="concept-art.html">Concept Art</a>
+          </li>
+          <li class="main-nav-item">
+            <a href="behind-the-scenes.html">Behind The Scenes</a>
+          </li>
+        </ul>
       </div>
-      <div class="project-logo">
-        <a href="bloodhounds.html">
-         <img src="../../images/bloodhounds-logo-uwalani-header.png" alt="Bloodhounds">
-        </a>
-      </div>
-      <div class="navlinks">
-        <a href="../about.html">About</a>
-        <a href="../meet-the-team.html">Meet the Team</a>
-        <a href="../projects.html">Projects</a>
-    </nav>  
   </header>
   <main>
-    <img src="../../images/backgrounds-brigade-badlands.png"
     <article id="site-under-construction">
-      <header id="badlands-main">
-        <h2>The Badlands</h2>
-      </header>
-      <h2>site under construction...</h2>
+      <h2>page under construction...</h2>
     	<p>check back soon!</p>
 
     </article>
