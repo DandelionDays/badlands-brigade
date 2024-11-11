@@ -100,9 +100,9 @@ button:focus {
     transition: translate 0.5s ease-in-out;
   }
 }
-.main-nav-open[aria-expanded="false"]{ /*targets open position of menu; [] needs to be directly adjacent lol*/
+.main-nav-open[aria-expanded="false"]{ /*targets closed position of menu; when js changes true to false onclick, the desired behaviour occurs*/
   + .main-nav-menu {
-    translate: 100vw; 
+    translate: 110vw; 
     transition: translate 0.5s ease-in-out;
   }
 }
@@ -111,7 +111,7 @@ button:focus {
   position: fixed;
   inset: 0;
   padding-block: 0.5rem;
-  translate: 100vw;
+  translate: 110vw;
   transition: translate 0.2s ease-in-out;
 }
 button.main-nav-close {
