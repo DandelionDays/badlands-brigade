@@ -72,6 +72,7 @@ header.main-nav{
     display: flex; /*puts image and title side by side*/
     align-items: center; /*distributes them along the centre of the horizontal axis*/
     /*I couldn't figure out why using this selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element instead of the <div> since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
+    padding-left: 1rem;
   }
   a {
     color: #F5E9E9;
@@ -164,6 +165,10 @@ article {
   }
   background-color: #F5E9E9;
   border-radius: 10px;
+}
+
+.explanatory-article {
+  max-width: 40rem;
 }
 
 
