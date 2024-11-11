@@ -30,7 +30,7 @@ body{
 }
 
 body.badlands-background{
-  background-image: url(../images/backgrounds-brigade-badlands.png);
+  background: url(../images/backgrounds-brigade-badlands.png), #ec5147;
   background-position: left 62%;
   background-attachment: fixed;
 }
