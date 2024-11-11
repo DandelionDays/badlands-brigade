@@ -166,6 +166,10 @@ article {
   border-radius: 10px;
 }
 
+.explanatory-article {
+  max-width: 40rem;
+}
+
 
 /*
 ----------------------
