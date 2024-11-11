@@ -12,51 +12,62 @@
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=abel:400|anaheim:400,500,700|anonymous-pro:400,700,700i|audiowide:400|pixelify-sans:400|press-start-2p:400" rel="stylesheet" />
   <link rel="stylesheet" href="styles/home-page-styles.css">
+  <script src="scripts/main.js" async></script>
 </head>
 <body class="home-page">
-  <nav>
+  <header class="main-nav">
+    <!-----------------------
+    hamburger menu; nav links
+    ------------------------>
+    <nav>
+    <!------------------------
+    hamburger menu open button
+    ------------------------->
+    <!-- UNCOMMENT THIS WHEN I'M READY TO PLAY AROUND WITH THE .HOME-LOGO DISPLAY FURTHER
+      <button 
+        id="buttonOpen" 
+        class="main-nav-open" 
+        onclick="openMobileMenu()"
+        aria-expanded="false"> 
+          <!--aria-expanded controls whether the dialog is open or closed
+        <img src="images/hamburger-button-500.png" alt="Open Menu" width="33" height="33">
+      </button>
+    -->
+    <!------------
+    nav menu items
+    ------------->
+      <div class="main-nav-menu" role="dialog"> <!--ARIA role=dialog is for toggleable things-->
+        <button 
+          id="buttonClose" 
+          onclick="closeMobileMenu()"
+          aria-label="Close" 
+          class="main-nav-close">
+          <img src="images/close-button-500.png" alt="" width="33" height="33">
+        </button>
+        <ul class="main-nav-links">
+          <li class="main-nav-item">
+            <a href="pages/bloodhounds.html">
+              <img src="images/bloodhounds-logo-uwalani-header-300w.png" alt="Bloodhounds Project Page">
+            </a> 
+          </li>
+          <li class="main-nav-item">
+            <a href="pages/meet-the-team.html">Meet the Team</a>
+          </li>
+          <li class="main-nav-item">
+            <a href="pages/bloodhounds/concept-art.html">Concept Art</a>
+          </li>
+          <li class="main-nav-item">
+            <a href="pages/bloodhounds/behind-the-scenes.html">Behind The Scenes</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
     <a class="home-logo" href="pages/bloodhounds.html">
-
       <img src="images/bloodhounds-logo-uwalani.png" alt="Bloodhounds">
       <h1>Enter</h1>
     </a>
-    <!--<button class="topnav-open">
-      <img src="images/hampurger-button.png" alt="">
-    </button>-->
-  </nav>
-<!--
-  <header class="navbar">
-    <nav>
-      <div class="site-name">
-        <a href="index.html"><h1>Badlands Brigade</h1></a>
-      </div>
-      <div class="project-logo">
-        <a href="pages/bloodhounds/bloodhounds.html">
-         <img src="images/bloodhounds-logo-uwalani-header.png" alt="Bloodhounds">
-        </a>
-      </div>
-      <div class="navlinks">
-        <a href="pages/about.html">About</a>
-        <a href="pages/meet-the-team.html">Meet the Team</a>
-        <a href="pages/projects.html">Projects</a>
-    </nav>  
-  </header>
--->
-<!--
-  <main>
-    <article id="site-under-construction">
-      <h2>site under construction...</h2>
-    	<p>check back soon!</p>
-    </article>
   </main>
--->
-<!--
-  <footer>
-    <p>Website design and structure (c) 2024 by Dandelion.</p>
-    <p>Project content (c) 2024 members of the Badlands Brigade project collective.</p>
-    <p>HolostarsEN, ARMIS, and associated IPs (c) 2016 COVER CORP.</p>
-  </footer>
--->
-
 </body>
 </html>

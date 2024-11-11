@@ -20,6 +20,7 @@ SITE WIDE DEFAULTS
   scrollbar-gutter: stable;
   scrollbar-color: #b3333e #ec5147;
 }
+
 body{
   display: flex;
   flex-flow: column;
@@ -57,13 +58,15 @@ a{
 }
 
 /*
------------------
-NAV DEFAULTS
------------------
+----------------------------------------------------------------
+NAV DEFAULTS - OVERRIDES FOR HOMEPAGE NAV ARE IN HOME-PAGESTYLES
+----------------------------------------------------------------
 */
+
 header.main-nav{
 /*#0e1f27; 565473, alt colour #544E7A or 68668C*/
   padding-top: 0.5rem;
+  transition: padding-left 0.1s ease-in-out;
   display: flex; /* keep the h1 tag on the left and the main nav on the right */
   justify-content: space-between;
   align-items: center;
@@ -73,6 +76,12 @@ header.main-nav{
   align-items: center; /*distributes them along the centre of the horizontal axis*/
   /*I couldn't figure out why using this selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element instead of the <div> since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
   padding-left: 1rem;
+}
+@media (width < 42.5em) {
+  .site-logo {
+    padding-left: 0.25rem;
+    transition: padding-left 0.1s ease-in-out;
+  }
 }
 .main-nav a {
   color: #F5E9E9;
@@ -98,13 +107,12 @@ button:focus {
   }
 }
 .main-nav-menu { /* makes menu card*/
-    background: #ec5147;      
-    position: fixed;
-    inset: 0;
-    padding-block: 0.5rem;
-    translate: 100vw;
-    transition: translate 0.2s ease-in-out;
-
+  background: #ec5147;      
+  position: fixed;
+  inset: 0;
+  padding-block: 0.5rem;
+  translate: 100vw;
+  transition: translate 0.2s ease-in-out;
 }
 button.main-nav-close {
   display: block;
@@ -166,11 +174,14 @@ article {
   max-width: 34rem;
   margin: 0.5rem;
   padding: 1rem;
-  @media (max-width: 500px) {
-    padding: 0.25rem;
-  }
   background-color: #F5E9E9;
   border-radius: 10px;
+}
+
+@media (width < 32em) {
+  article {
+    padding: 0.25rem;
+  }
 }
 
 .explanatory-article {

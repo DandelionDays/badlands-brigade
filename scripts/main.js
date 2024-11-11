@@ -14,4 +14,6 @@ buttonOpen.addEventListener('click', openMobileMenu(),
 );
 
 buttonClose.addEventListener('click', closeMobileMenu(),
-  console.log("Close Menu"));
+  console.log("Close Menu")
+);
+
