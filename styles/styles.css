@@ -68,57 +68,56 @@ header.main-nav{
   display: flex; /* keep the h1 tag on the left and the main nav on the right */
   justify-content: space-between;
   align-items: center;
-  .site-logo { 
-    display: flex; /*puts image and title side by side*/
-    align-items: center; /*distributes them along the centre of the horizontal axis*/
-    /*I couldn't figure out why using this selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element instead of the <div> since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
-    padding-left: 1rem;
+}
+.site-logo { 
+  display: flex; /*puts image and title side by side*/
+  align-items: center; /*distributes them along the centre of the horizontal axis*/
+  /*I couldn't figure out why using this selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element instead of the <div> since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
+  padding-left: 1rem;
+}
+.main-nav a {
+  color: #F5E9E9;
+}
+button {
+  background: none;
+  border: none;
+  padding: 1rem;
+}
+.main-nav-open[aria-expanded="true"]{ /*targets open position of menu; [] needs to be directly adjacent lol*/
+  + .main-nav-menu {
+    translate: 0; /* When aria expanded=true, clicking the main nav open button will bring the main nav menu back on screen */
+    transition: translate 0.5s ease-in-out;
   }
-  a {
-    color: #F5E9E9;
+}
+.main-nav-open[aria-expanded="false"]{ /*targets open position of menu; [] needs to be directly adjacent lol*/
+  + .main-nav-menu {
+    translate: 100vw; 
+    transition: translate 0.5s ease-in-out;
   }
-  button {
-    background: none;
-    border: none;
-    padding: 1rem;
-  }
-  .main-nav-open[aria-expanded="true"]{ /*targets open position of menu; [] needs to be directly adjacent lol*/
-    + .main-nav-menu {
-      translate: 0; /* When aria expanded=true, clicking the main nav open button will bring the main nav menu back on screen */
-      transition: translate 0.5s ease-in-out;
-    }
-  }
-  .main-nav-open[aria-expanded="false"]{ /*targets open position of menu; [] needs to be directly adjacent lol*/
-    + .main-nav-menu {
-      translate: 100vw; 
-      transition: translate 0.5s ease-in-out;
-    }
-  }
-  .main-nav-menu {
+}
+.main-nav-menu {
+    background: #ec5147;      
+    position: fixed;
+    inset: 0;
+    padding-block: 1.5rem;
+    translate: 100vw;
+    transition: translate 0.5s ease-in-out;
 
-      background: #ec5147;      
-      position: fixed;
-      inset: 0;
-      padding-block: 1.5rem;
-      translate: 100vw;
-      transition: translate 0.5s ease-in-out;
-
-  }
-    button.main-nav-close {
-    display: block;
-    margin-inline-start: auto;
-    margin-inline-end: 1rem;
-    margin-block-end: 8rem;
-    padding: 0;
-  }
-  .main-nav-links { /* removes default list styling, styles nav-links in a row */
-    list-style: none;
-    display: flex; 
-    gap: 1rem;
-    align-items: center;
-    flex-direction: column;
-    font-size: 2rem;
-  }
+}
+  button.main-nav-close {
+  display: block;
+  margin-inline-start: auto;
+  margin-inline-end: 1rem;
+  margin-block-end: 8rem;
+  padding: 0;
+}
+.main-nav-links { /* removes default list styling, styles nav-links in a row */
+  list-style: none;
+  display: flex; 
+  gap: 1rem;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
 }
 
 nav.sub-nav {

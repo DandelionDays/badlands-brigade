@@ -56,29 +56,53 @@ body.home-page {
   -moz-animation: 10s skeletonLoading 1 forwards;
   -o-animation: 9s skeletonLoading 1 forwards;
   -ms-animation: 9s skeletonLoading 1 forwards;
-  background-image: url(../images/backgrounds-brigade-badlands.png);
+  background-image: url(../images/backgrounds-brigade-badlands-1200sq-crop.png);
   background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   scrollbar-gutter: auto;
+  font-family: Pixelify Sans, 'Courier New', Courier, monospace;
+  text-decoration: none;
 }
 
-img.home-logo {
+.home-logo { /*Bloodhounds logo + Enter button*/
   opacity: 0;
   animation: 2s fadeIn 3s 1 forwards;
   max-width: 90vw;
   display: flex;
   flex-direction: column;
-  align-self: center;
   margin:auto;
   margin-top: 30vh;
 }
-/*
-div.home-page-skeleton {
-  background-color: black;
-  opacity: 1;
-  animation: fadeOut 2s ease-out 4s 1 forwards;
+@media (width > 60em) {
+  .home-logo {
+    max-width: 50vw;
+  }
+  body.home-page {
+    background-image: url(../images/backgrounds-brigade-badlands-2250w-1080h-crop.png);
+  }
 }
-*/
+
+h1 {
+  font-size: 3rem;
+  margin-top: -0.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: #F5E9E9;
+  text-shadow: 1px 1px 2px black;
+}
+
+@media (width > 32em) {
+  h1 {
+    font-size: 5rem;
+    margin-top: -1.75rem;
+  }
+}
+
+a {
+  color: #F5E9E9;
+  text-decoration: none;
+  text-shadow: black;
+}
