@@ -10,10 +10,8 @@ function closeMobileMenu() {
 }
 
 buttonOpen.addEventListener('click', openMobileMenu(),
-  console.log("Open Menu")
 );
 
 buttonClose.addEventListener('click', closeMobileMenu(),
-  console.log("Close Menu")
 );
 
