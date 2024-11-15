@@ -1,0 +1,119 @@
+/*
+----------------------------------------------------------------
+HEADER+NAV DEFAULTS - OVERRIDES FOR HOMEPAGE NAV ARE IN HOME-PAGESTYLES
+----------------------------------------------------------------
+*/
+/* header + hamburger menu closed appearance */
+header.main-nav{
+  /*background: #0e1f27; 565473, alt colour #544E7A or 68668C*/
+  padding-top: 0.5rem;
+  transition: padding-left 0.1s ease-in-out;
+  display: flex; /* keep the h1 tag on the left and the main nav on the right */
+  justify-content: space-between;
+  align-items: center;
+}
+.site-logo { 
+  display: flex; /*puts image and title side by side*/
+  align-items: center; /*distributes them along the centre of the horizontal axis*/
+  /*I couldn't figure out why using the .site-logo selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element instead of the <div> since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+/* adjusts site logo position for mobile display sizes */
+@media (width < 42.5em) {
+  .site-logo {
+    padding-left: 0.25rem;
+    transition: padding-left 0.1s ease-in-out;
+  }
+}
+/* nav link colour and hover/focus styles */
+.main-nav a {
+  color: #F5E9E9;
+}
+.site-logo:focus {
+  background-color: #f5e9e92a;
+}
+.site-logo:hover {
+  background-color: #f5e9e92a;
+}
+.main-nav-item:focus {
+  background-color: #f5e9e92a;
+}
+.main-nav-item:hover {
+  background-color: #f5e9e92a;
+}
+
+/* default button styles */
+button {
+  background: none;
+  border: none;
+  padding: 1rem;
+}
+button:focus {
+  background-color: #f5e9e92a;
+}
+button:hover {
+  background-color: #f5e9e92a;
+}
+
+/* nav menu open-close translation functionality */
+.main-nav-open[aria-expanded="true"]{ /*targets open position of menu; [] needs to be directly adjacent lol*/
+  + .main-nav-menu {
+    translate: 0; /* When aria expanded=true, clicking the main nav open button will bring the main nav menu back on screen */
+    transition: translate 0.5s ease-in-out;
+  }
+}
+.main-nav-open[aria-expanded="false"]{ /*targets closed position of menu; when js changes true to false onclick, the desired behaviour occurs*/
+  + .main-nav-menu {
+    translate: 110vw; 
+    transition: translate 0.5s ease-in-out;
+  }
+}
+
+/* hamburger menu open appearance */
+.main-nav-menu { /* makes menu card*/
+  background: #ec5147;      
+  position: fixed;
+  inset: 0;
+  padding-block: 0.5rem;
+  translate: 110vw;
+  transition: translate 0.2s ease-in-out;
+}
+button.main-nav-close {
+  display: block;
+  margin-inline-start: auto;
+}
+
+.main-nav-list { /* removes default list styling, styles nav-links in a column */
+  list-style: none;
+  display: flex; 
+  gap: 1rem;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
+  margin-top: 8rem;
+}
+/* styling for BLOODHOUNDS logo within hamburger menu */
+.main-nav-item img {
+  max-width: 100%;
+  height: auto;
+  padding-top: 0.75rem;
+}
+
+.main-nav-item {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* styling for hamburger menu open appearance for landscape oriented mobile devices*/
+@media (orientation: landscape) and (width < 60em) { 
+  .main-nav-list {
+    margin-top: 0;
+    font-size: 1.5rem;
+    gap: 0.5rem;
+  }
+}
+
+nav.sub-nav {
+  padding-top: 0.5rem;
+}

@@ -44,7 +44,7 @@ a{
   display: none;
 }
 
-@media (max-width: 500px) {
+@media (width < 42.5em) {
   body {
     font-size: 0.7rem;
   }
@@ -55,95 +55,6 @@ a{
   .mobile-br {
     display: inline;
   }
-}
-
-/*
-----------------------------------------------------------------
-NAV DEFAULTS - OVERRIDES FOR HOMEPAGE NAV ARE IN HOME-PAGESTYLES
-----------------------------------------------------------------
-*/
-
-header.main-nav{
-/*#0e1f27; 565473, alt colour #544E7A or 68668C*/
-  padding-top: 0.5rem;
-  transition: padding-left 0.1s ease-in-out;
-  display: flex; /* keep the h1 tag on the left and the main nav on the right */
-  justify-content: space-between;
-  align-items: center;
-}
-.site-logo { 
-  display: flex; /*puts image and title side by side*/
-  align-items: center; /*distributes them along the centre of the horizontal axis*/
-  /*I couldn't figure out why using this selector wasn't working to display the logo and title side by side, until I realized that I needed to apply display: flex to the <a> element instead of the <div> since THAT'S what directly wraps the <img> and <h1> elements. I moved class="site-logo" to <a> instead of the wrapping div and that solved my problem lol*/
-  padding-left: 1rem;
-}
-@media (width < 42.5em) {
-  .site-logo {
-    padding-left: 0.25rem;
-    transition: padding-left 0.1s ease-in-out;
-  }
-}
-.main-nav a {
-  color: #F5E9E9;
-}
-button {
-  background: none;
-  border: none;
-  padding: 1rem;
-}
-button:focus {
-  background-color: #f5e9e92a;
-}
-.main-nav-open[aria-expanded="true"]{ /*targets open position of menu; [] needs to be directly adjacent lol*/
-  + .main-nav-menu {
-    translate: 0; /* When aria expanded=true, clicking the main nav open button will bring the main nav menu back on screen */
-    transition: translate 0.5s ease-in-out;
-  }
-}
-.main-nav-open[aria-expanded="false"]{ /*targets closed position of menu; when js changes true to false onclick, the desired behaviour occurs*/
-  + .main-nav-menu {
-    translate: 110vw; 
-    transition: translate 0.5s ease-in-out;
-  }
-}
-.main-nav-menu { /* makes menu card*/
-  background: #ec5147;      
-  position: fixed;
-  inset: 0;
-  padding-block: 0.5rem;
-  translate: 110vw;
-  transition: translate 0.2s ease-in-out;
-}
-button.main-nav-close {
-  display: block;
-  margin-inline-start: auto;
-}
-.main-nav-links { /* removes default list styling, styles nav-links in a row */
-  list-style: none;
-  display: flex; 
-  gap: 1rem;
-  align-items: center;
-  flex-direction: column;
-  font-size: 2rem;
-  margin-top: 8rem;
-}
-@media (orientation: landscape) and (width < 62em) {
-  .main-nav-links {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    gap: 0.5rem;
-  }
-}
-
-.main-nav-item img {
-  max-width: 100%;
-  height: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-nav.sub-nav {
-  padding-top: 0.5rem;
 }
 
 /*
@@ -167,34 +78,24 @@ main{
   margin:auto;
   padding: 1rem;
 }
+
 footer{
   align-self: center;
 }
 
-
-/*
--------------------------
-BLOODHOUNDS PAGE STYLINGS
--------------------------
-*/
 article {
-  max-width: 34rem;
+  max-width: 50rem;
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 0.25rem;
   background-color: #F5E9E9;
   border-radius: 10px;
 }
 
-@media (width < 32em) {
+@media (width > 32em) {
   article {
-    padding: 0.25rem;
+    padding: 1rem;
   }
 }
-
-.explanatory-article {
-  max-width: 40rem;
-}
-
 
 /*
 ----------------------
@@ -226,6 +127,7 @@ table-specific styling
 /* table headers */
 th {
   background-color: #da2c3859;
+  padding: 0.25rem;
 }
 
 thead th:nth-child(1) {
@@ -269,21 +171,8 @@ tr.admin-role {
   background-color: #da2c3821;
 }
 
-/* desktop table styling */
-@media (min-width: 800px) {
-  
-  .credits-table {
-    text-align: left;
-    table-layout: fixed;
-    width: 100%;
-    margin-left:auto;
-    margin-right: auto;
-  }
-  th {
-    padding: 0.25rem;
-  }
-  td {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
+td {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
+
