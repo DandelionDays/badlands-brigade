@@ -25,9 +25,17 @@ body{
   display: flex;
   flex-flow: column;
   min-height: 100vh; 
+  font-size: 0.7rem;
   /*this works together with setting main{flex:1;} to create the sticky footer*/
   background-color: #ec5147;
   color: #113d52;
+}
+
+h1.page-title {
+  color: #F5E9E9;
+  border-bottom: solid #113d52;
+  text-align: center;
+  padding-bottom: 0.5rem;
 }
 
 body.badlands-background{
@@ -36,24 +44,34 @@ body.badlands-background{
   background-attachment: fixed;
 }
 
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
 a{
   color: #DA2C38;
 }
 
 .mobile-br {
-  display: none;
+  display: inline;
 }
 
-@media (width < 42.5em) {
-  body {
-    font-size: 0.7rem;
-  }
-  article {
-    padding: 0%;
-    margin: 0%;
-  }
+@media (width > 42.5em) {
   .mobile-br {
-    display: inline;
+    display: none;
+  }
+  p {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.25rem;
   }
 }
 
@@ -176,3 +194,58 @@ td {
   padding-right: 0.25rem;
 }
 
+/*
+----------------------------
+CONCEPT ART GALLERY STYLINGS
+----------------------------
+*/
+article.gallery {
+  max-width: 90vw;
+  margin: 0.5rem;
+  padding: 0;
+  background-color: #ffffff00;
+  border-radius: 10px;
+}
+
+article.gallery h2 {
+  text-align: center;
+}
+
+figure.gallery-item  {
+  max-width: 50rem;
+  margin: 0.5rem;
+  background-color: #F5E9E9;
+  border-radius: 10px;
+}
+
+.gallery-item figcaption {
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.gallery-item img {
+  border-radius: 10px 10px 0 0;
+}
+
+.gallery-responsive-wrapper {
+  float: left;
+  width: 100%;
+}
+
+@media (width > 32em) {
+  .gallery-item figcaption {
+    padding: 1rem;
+  }
+  .gallery-responsive-wrapper {
+    width: 50%;
+  }
+}
+
+@media (width > 42.5em) {
+  .gallery-responsive-wrapper {
+    width: 33%;
+  }
+  .gallery-responsive-wrapper.wide {
+    width: 50%;
+  }
+}
