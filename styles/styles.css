@@ -42,6 +42,11 @@ main img {
   height: auto;
 }
 
+iframe {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 a{
   color: #DA2C38;
 }
