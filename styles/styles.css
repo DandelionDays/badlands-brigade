@@ -31,6 +31,14 @@ body{
   color: #113d52;
 }
 
+h2 {
+  font-size: 1.125rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
 body.badlands-background{
   background: url(../images/backgrounds-brigade-badlands.png), #ec5147;
   background-position: left 62%;
@@ -73,7 +81,10 @@ h1.page-title {
     display: none;
   }
   p {
-    font-size: 1rem;
+    font-size: 1.125rem;
+  }
+  .credits-table {
+    font-size: 1.125rem;
   }
   h1 {
     font-size: 3rem;
@@ -110,6 +121,7 @@ main{
 
 footer{
   align-self: center;
+  padding: 0.25rem;
 }
 
 article {
